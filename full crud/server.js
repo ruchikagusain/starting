@@ -33,6 +33,7 @@ app.post('/users', async (req, res) => {
   try {
     const newUser = new User(req.body); // create a new user from request body
     const savedUser = await newUser.save(); // save to DB
+
     res.status(201).json(savedUser);
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -41,7 +42,8 @@ app.post('/users', async (req, res) => {
 
 // Get all users - GET /users
 app.get('/users', async (req, res) => {
-  const users = await User.find();
+ // const users = await User.find({},{name:1,age:1})
+   const users = await User.find({age:{$gte:20}});
   res.json(users);
 });
 
