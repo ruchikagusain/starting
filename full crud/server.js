@@ -7,6 +7,8 @@ const mongoose = require('mongoose')
 const connectDB = require('./db')
 const User = require('./userSchema')
 
+
+
 const app = express();
 app.use(express.json()); // Parse JSON request bodies
 
