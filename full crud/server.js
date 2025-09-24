@@ -43,7 +43,7 @@ app.post('/users', async (req, res) => {
 // Get all users - GET /users
 app.get('/users', async (req, res) => {
  // const users = await User.find({},{name:1,age:1})
-   const users = await User.find({age:{$gte:20}});
+   const users = await User.find({age:{$gte:20}})
   res.json(users);
 });
 
