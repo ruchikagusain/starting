@@ -40,6 +40,8 @@ app.post('/users', async (req, res) => {
   }
 });
 
+
+
 // Get all users - GET /users
 app.get('/users', async (req, res) => {
  // const users = await User.find({},{name:1,age:1})
