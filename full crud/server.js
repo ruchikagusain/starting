@@ -47,6 +47,7 @@ app.get('/users', async (req, res) => {
   res.json(users);
 });
 
+
 // Get a user by ID - GET /users/:id
 app.get('/users/:id', async (req, res) => {
   try {
