@@ -48,7 +48,8 @@ app.post('/users', async (req, res) => {
 app.get('/users', async (req, res) => {
   // const users = await User.find({},{name:1,age:1})
   // const users = await User.find({ age: { $gte: 20 } })
-  const users = await User.find().sort({name:-1})
+ // const users = await User.find().sort({name:-1})
+ 
   res.json(users);
 });
 
