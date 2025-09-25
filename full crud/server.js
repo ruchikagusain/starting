@@ -53,7 +53,7 @@ app.get('/users', async (req, res) => {
  const users = await User.aggregate([
   {
     $match:{
-      age:{$gte:20}
+      age:{$gte:40}
     }
   }
  ])
