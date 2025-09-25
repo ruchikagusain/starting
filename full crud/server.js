@@ -53,7 +53,16 @@ app.get('/users', async (req, res) => {
  const users = await User.aggregate([
   {
     $match:{
-      age:{$gte:40}
+      age:{$gte:20},
+      
+    }
+  },
+  {
+    $limit : 2
+  },
+  {
+    $sort: {
+      age: -1
     }
   }
  ])
