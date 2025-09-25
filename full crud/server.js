@@ -49,7 +49,15 @@ app.get('/users', async (req, res) => {
   // const users = await User.find({},{name:1,age:1})
   // const users = await User.find({ age: { $gte: 20 } })
  // const users = await User.find().sort({name:-1})
- 
+ //const users = await User.find().limit(2).skip(1)
+ const users = await User.aggregate([
+  {
+    $match:{
+      age:{$gte:20}
+    }
+  }
+ ])
+
   res.json(users);
 });
 
@@ -74,7 +82,7 @@ app.put('/users/:id', async (req, res) => {
       { new: true, runValidators: true }
     );
     if (!updatedUser) return res.status(404).json({ error: 'User not found' });
-    res.json(updatedUser);
+    res.json(updatedUser)
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -94,6 +102,5 @@ app.delete('/users/:id', async (req, res) => {
 // Start server
 app.listen(3000, () => console.log('Server running on port 3000'));
 connectDB()
-
 
 
